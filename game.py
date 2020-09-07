@@ -34,7 +34,93 @@ def game_over(reason):
     exit()
 
 def first_pirate_attack():
-  print('first pirate attack goes here')
+  global morale
+  global health
+  global equipment
+  print('You get a bad feeling. You scan the surrounding waters for the tell tale dark shadows just below the surface that preempt an attack from the depths. But this time the source for concern isn\'t from below the water but speeding just above it. Four armed men are quickly approaching straight towards your boat. YOUR boat! It\'s not looking good. These men are definitely pirates.')
+  lineBreak()
+  choice = input(f"""
+a: Try to outrun them. It doesn't look hopeful but it may be your only chance.
+
+b: Fight. The pirates will learn to regret their life choices.
+
+c: Surrender. Hope they are merciful.
+""")
+  if choice == "a":
+    if morale > 2: # escape
+      mission_list.append(pirate_attack2)
+      print("The pirates didn't expect your vessel to be as fast as it was and they give up for easier prey. That was close.")
+      travel()
+    else:
+      stolen = random.choice(equipment)
+      equipment.remove(stolen)
+      health = health - 1
+      print(f'You max the engine but they overtake you. They steal your {stolen} and because you ran they pistol whip you.')
+      display_stats()
+      travel()
+  if choice == "b":
+    if mate == "Viktoria":
+      mission_list.append(pirate_attack2)
+      print("It's clear to you ... and eventually to the pirates that Viktoria is no stranger to using a knife. The pirates are easily fended off. Viktoria's pride is evident. You even collect a few of their dropped weapons and the ship is safe.")
+      morale = morale + 1
+      equipment.append("Guns")
+      display_stats()
+      travel()
+    if mate == "Cristo":
+      mission_list.append(pirate_attack2)
+      print("Cristo doesn't put up much of a fight. In fact the pirates seem genuinely amused at his attempts. They decide to let you be but you can hear their laughter long after they get too far away to see. Cristo seems more than a little insulted.")
+      morale = morale - 1
+      display_stats()
+      travel()
+    if mate == "Lillian":
+      mission_list.append(pirate_attack2)
+      print("Lillian really put up a fight. The pirates easily overtake your boat. And they take all your equipment no problem.")
+      display_stats()
+      lineBreak()
+      print("You gather yourself and keep moving forward")
+      travel()
+    if mate == "Jacob":
+      mission_list.append(pirate_attack2)
+      print("Jacob is no stranger to stress or combat. He handles himself well and the pirates retreat to find easier prey. You are even able to collect a few of the weapons the pirates dropped.")
+      equipment.append("Guns")
+      display_stats()
+      travel()
+  if choice == "c":
+    mission_list.append(pirate_attack2)
+    print("Surprisingly the pirates are quite cordial. They are borderline apologetic. But ... they do take all your equipment though. That was a given. Right before leaving one of them looks legitimately guilty and leaves you with some food he had on him.")
+    equipment = ["food"]
+    lineBreak()
+    travel()
+
+def pirate_attack2():
+  print("Uh oh ... the pirates are back! This time on jet skis!")
+  choice = input(f"""
+a: Jet skis can’t be an effective transport for pirates. Voice your concern to them.
+
+b: Floor it.
+""")
+
+  if choice == "a":
+    if "Explosives" in equipment:
+      print(f'As you voice your concern with their choice of transportation, the pirates start firing at you. {mate} starts lobbing explosives at them. One of the jet skis is obliterated, raining jet ski parts onto the deck of your ship. The pirates quickly retreat after seeing the devastation. You are shaken but safe.') 
+      travel()
+    elif "Guns" in equipment and mate != "Lillian":
+      print(f'Before you can voice your concerns, {mate} opens fire on the pirates. They quickly scatter as they have no way to shield themselves from your first mate’s barrage. You don’t think they thought this through.')
+      travel()
+    elif "Fish Finder" in equipment:
+      print(f'They do not seem to care and open fire on you. You hide in your cabin and things are at a stalemate until {mate} throws the fish finder overboard. They seem confused and leave. You aren\'t sure what {mate}\'s plan was either, but it worked so you move on.')
+      travel()
+    else:
+      print('You voice your concerns and while most seem to only get angrier one is listening intently. He must have been the leader because he apprecaites your concern and motions for the rest to move on. They leave without incident')
+      travel()
+  elif choice == "b":
+    print('You throw the throttle down and speed away. The jet skis poor gas mileage does not allow them to keep up with you, and they peel off one by one over time.')
+    travel()
+
+  else:
+    print(f'"{choice}" was not an option')
+    lineBreak()
+    pirate_attack2()
 
 def shark_chasers():
 
@@ -189,9 +275,38 @@ b. Cut him loose and pray that no one else finds him before the sea swallows him
     lineBreak()
     lost_at_sea()
 
+def distress():
+  global morale
+  print('you receive a distress call from the Nautilus, captained by one of your bitter rivals, Captain Pratt. The contents of the message are unclear, but you do manage to extract a set of coordinates from the crackling broadcast')
+  choice = input("""
+a: Ignore it.
+
+b: You ask them to rate their distress level on a scale from 1 to 10, ten being
+the most distressed and one being the least distressed.
+
+c: Suspend all duties and head to the coordinates.
+""")
+
+  if choice == "a":
+    print(f"you continue on your way. Later you hear of the Nautilus’ disappearance from a fellow captain. Apparently the ship was attempting to shuttle medical supplies out to a port in dire need. {mate} looks at you in disgust")
+    morale -= 1
+    display_stats()
+    travel()
+  elif choice == "b":
+    print('There is no response from the Nautilus. After trying to raise them on the radio for ten minutes, you decide to investigate. But when you arrive at the coordinates, there is nothing there. No sign that a ship whatsoever. A feeling of unease infects the crew.')
+    morale -= 1
+    display_stats()
+    travel()
+  elif choice == "c":
+    loot = random.choice(available_equipment_list)
+    available_equipment_list.remove(loot)
+    equipment.append(loot)
+    print(f'You discover a pile of bubbling wreckage when you arrive at the coordinates, but nothing else. As you sift through the wreckage, you haul out some medical supplies destined for somewhere unknown. As well as {loot}.')
+    display_stats()
+
 ################################ Start of App ################################
 
-mission_list = [shark_chasers, lost_at_sea]
+mission_list = [shark_chasers, lost_at_sea, first_pirate_attack, distress]
 available_equipment_list = ["Food", "Explosives", "Guns", "Fish Finder"]
 
 name = input("What's your name sailor? ")
