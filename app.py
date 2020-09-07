@@ -34,7 +34,9 @@ def game_over(reason):
     exit()
 
 def first_pirate_attack():
-  print()
+  print('You get a bad feeling. You scan the surrounding waters for the tell tale dark shadows just below the surface that preempt an attack from the depths. But this time the source for concern isn\'t from below the water but speeding just above it. Four armed men are quickly approaching straight towards your boat. YOUR boat! It\'s not looking good. These men are definitely pirates.')
+  lineBreak()
+  
 
 def shark_chasers():
 
