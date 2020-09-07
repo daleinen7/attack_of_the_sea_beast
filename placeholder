@@ -57,56 +57,6 @@ to come aboard the ship full time so he can help those in need on the Amity and
 abroad)
 
 
-
-
-
-
-
-29Pirate Test
-You get a bad feeling. You scan the surrounding waters for the tell tale dark shadows just below the surface that preempt an attack from the depths. But this time the source for concern isn't from below the water but speeding just above it. Four armed men are quickly approaching straight towards your boat. YOUR boat! It's not looking good. These men are definitely pirates.
-
-Choice A: Try to outrun them. It doesn't look hopeful but it may be your only chance.
-
-Choice B: Fight. There are enough people on board to not worry.
-
-Choice C: Surrender. Hope they are merciful.
-
-Outcome A: 50% chance of success (later will be based on boat speed) The pirates didn't expect your vessel to be as fast as it was and they give up for easier prey. That was close.
-
-50% chance of failure; You max the engine but they overtake you. They steal all your money and because you ran ...
-
-If Viktoria is on board:  they pistol whip Viktoria
-Else If Cristo on board: they pistol whip Cristo
-Else if Jacob is on board: They pistol whip Jacob
-Else if Huston is on board: They pistol whip Huston
-Else if none of those crew are on board: they look around for someone to kick in the shin but then decide to just leave.
-One crew gets injured | Lose all funds
-
-Outcome B: 
-
-If Viki on board: You fight. Viktoria is much better with a knife than the average pirate would figure. Still Viktoria doesn't end the scuffle unscathed. But you can't help but notice the pride in her eyes as she sees them retreating.
-
-Viktoria Morale Max | Health = 1
-
-Else if Cristo on board: Cristo doesn't put up much of a fight. In fact the pirates seem genuinely amused at his attempts. They decide to let you be but you can hear their laughter long after they get too far away to see. Cristo seems more than a little insulted.
-
-Cristo Morale -1
-
-Else if Huston is on board: Huston moves much quicker than either you or the pirates expect. There must be a lot of rage built up in him. In any case the pirates retreat to wait for more easy prey.
-
-Neutral result
-
-Else if None of those crew are on board: There isn't really anyone to put up a fight. The pirates easily overtake your boat. And they take all your money no problem. Your crew doesn't look at you the same after that.
-
-All funds lost | Crew Morale -1
-
-Outcome C: Surprisingly the pirates are quite cordial. They are borderline apologetic. But ... they do take all your money though. That was a given.
-
-All funds lost
-
-
-
-
 S45Vapers
 While at sea, a band of pirates on jet skis suddenly surround you. You:
 
