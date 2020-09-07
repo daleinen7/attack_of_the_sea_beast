@@ -303,6 +303,7 @@ c: Suspend all duties and head to the coordinates.
     equipment.append(loot)
     print(f'You discover a pile of bubbling wreckage when you arrive at the coordinates, but nothing else. As you sift through the wreckage, you haul out some medical supplies destined for somewhere unknown. As well as {loot}.')
     display_stats()
+    travel()
 
 ################################ Start of App ################################
 
