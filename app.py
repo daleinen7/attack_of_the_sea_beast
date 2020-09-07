@@ -61,8 +61,9 @@ c: Surrender. Hope they are merciful.
   if choice == "b":
     if mate == "Viktoria":
       mission_list.append(pirate_attack2)
-      print("It's clear to you ... and eventually to the pirates that Viktoria is no stranger to using a knife. The pirates are easily fended off. Viktoria's pride is evident. And the ship is safe.")
+      print("It's clear to you ... and eventually to the pirates that Viktoria is no stranger to using a knife. The pirates are easily fended off. Viktoria's pride is evident. You even collect a few of their dropped weapons and the ship is safe.")
       morale = morale + 1
+      equipment.append("Guns")
       display_stats()
       travel()
     if mate == "Cristo":
@@ -80,18 +81,46 @@ c: Surrender. Hope they are merciful.
       travel()
     if mate == "Jacob":
       mission_list.append(pirate_attack2)
-      print("Jacob is no stranger to stress or combat. He handles himself well and the pirates retreat to find easier prey.")
-      lineBreak()
+      print("Jacob is no stranger to stress or combat. He handles himself well and the pirates retreat to find easier prey. You are even able to collect a few of the weapons the pirates dropped.")
+      equipment.append("Guns")
+      display_stats()
       travel()
   if choice == "c":
     mission_list.append(pirate_attack2)
-    print("Surprisingly the pirates are quite cordial. They are borderline apologetic. But ... they do take all your equipment though. That was a given.")
-    equipment = []
+    print("Surprisingly the pirates are quite cordial. They are borderline apologetic. But ... they do take all your equipment though. That was a given. Right before leaving one of them looks legitimately guilty and leaves you with some food he had on him.")
+    equipment = ["food"]
     lineBreak()
     travel()
 
 def pirate_attack2():
-  print("pirate attack 2 goes here")
+  print("Uh oh ... the pirates are back! This time on jet skis!")
+  choice = input(f"""
+a: Jet skis can’t be an effective transport for pirates. Voice your concern to them.
+
+b: Floor it.
+""")
+
+  if choice == "a":
+    if "Explosives" in equipment:
+      print(f'As you voice your concern with their choice of transportation, the pirates start firing at you. {mate} starts lobbing explosives at them. One of the jet skis is obliterated, raining jet ski parts onto the deck of your ship. The pirates quickly retreat after seeing the devastation. You are shaken but safe.') 
+      travel()
+    elif "Guns" in equipment and mate != "Lillian":
+      print(f'Before you can voice your concerns, {mate} opens fire on the pirates. They quickly scatter as they have no way to shield themselves from your first mate’s barrage. You don’t think they thought this through.')
+      travel()
+    elif "Fish Finder" in equipment:
+      print(f'They do not seem to care and open fire on you. You hide in your cabin and things are at a stalemate until {mate} throws the fish finder overboard. They seem confused and leave. You aren\'t sure what {mate}\'s plan was either, but it worked so you move on.')
+      travel()
+    else:
+      print('You voice your concerns and while most seem to only get angrier one is listening intently. He must have been the leader because he apprecaites your concern and motions for the rest to move on. They leave without incident')
+      travel()
+  elif choice == "b":
+    print('You throw the throttle down and speed away. The jet skis poor gas mileage does not allow them to keep up with you, and they peel off one by one over time.')
+    travel()
+
+  else:
+    print(f'"{choice}" was not an option')
+    lineBreak()
+    pirate_attack2()
 
 def shark_chasers():
 
