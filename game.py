@@ -247,6 +247,7 @@ b. Cut him loose and pray that no one else finds him before the sea swallows him
     elif mate == "Cristo":
       print('The fear in Cristo\'s eyes has you moving faster than the man anticipated. You pull Cristo free, and the man escapes overboard. You are inured but safe. Cristo is in shock but he still manages to help you bandage your wound.')
       health = health - 1
+      travel()
     elif mate == "Jacob":
       print('You aren\'t sure what the man was thinking, but Jacob easily overpowers him. You tie him up to the railing of the stern. While discussing what to do with him on the bow you hear a splash. As you both make your way to the back all that remains on is an untied rope. Hopefully he doesn\'t find his hurt anyone else on his search for dry land')
       travel()
@@ -255,6 +256,7 @@ b. Cut him loose and pray that no one else finds him before the sea swallows him
       health = health - 1
       morale = morale - 1
       display_stats()
+      travel()
   elif choice == "b":
     print('You see the evidence. It does not feel right. You leave without giving aid.')
     if mate == "Lillian":
